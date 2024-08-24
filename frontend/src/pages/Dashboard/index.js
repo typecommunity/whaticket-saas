@@ -131,7 +131,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    backgroundColor: "#9400D3",
+    backgroundColor: "#009146",
     color: "#eee",
   },
       card00: {
@@ -140,7 +140,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    backgroundColor: "#8B1C62",
+    backgroundColor: "#009146",
     color: "#eee",
   },
   card1: {
@@ -149,7 +149,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    backgroundColor: "#11bf42",
+    backgroundColor: "#009146",
     color: "#eee",
   },
   card2: {
@@ -158,7 +158,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    backgroundColor: "#748e9d",
+    backgroundColor: "#009146",
     color: "#eee",
   },
   card3: {
@@ -167,7 +167,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    backgroundColor: "#e53935",
+    backgroundColor: "#009146",
     color: "#eee",
   },
   card4: {
@@ -176,7 +176,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    backgroundColor: "#cc991b",
+    backgroundColor: "#009146",
     color: "#eee",
   },
   card5: {
@@ -185,7 +185,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    backgroundColor: "#47a7f6",
+    backgroundColor: "#009146",
     color: "#eee",
   },
   card6: {
@@ -194,7 +194,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    backgroundColor: "#b87d77",
+    backgroundColor: "#009146",
     color: "#eee",
   },
   card7: {
@@ -203,7 +203,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    backgroundColor: "#7bc780",
+    backgroundColor: "#009146",
     color: "#eee",
   },
   card8: {
@@ -212,7 +212,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    backgroundColor: "#b05c38",
+    backgroundColor: "#009146",
     color: "#eee",
   },
   card9: {
@@ -221,7 +221,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "auto",
     flexDirection: "column",
     height: "100%",
-    backgroundColor: "#bd3c58",
+    backgroundColor: "#009146",
     color: "#eee",
   },
   fixedHeightPaper2: {
@@ -475,7 +475,7 @@ const Dashboard = () => {
                   <MobileFriendlyIcon
                     style={{
                       fontSize: 100,
-                      color: "#fff",
+                      color: "#82D0FA",
                     }}
                   />
                 </Grid>
@@ -515,7 +515,7 @@ const Dashboard = () => {
                   <StoreIcon
                     style={{
                       fontSize: 100,
-                      color: "#FF34B3",
+                      color: "#82D0FA",
                     }}
                   />
                 </Grid>
@@ -538,7 +538,7 @@ const Dashboard = () => {
                     variant="h6"
                     paragraph
                   >
-                    Em Conversa
+                    Em Atendimento
                   </Typography>
                   <Grid item>
                     <Typography
@@ -553,7 +553,7 @@ const Dashboard = () => {
                   <CallIcon
                     style={{
                       fontSize: 100,
-                      color: "#0b708c",
+                      color: "#82D0FA",
                     }}
                   />
                 </Grid>
@@ -590,7 +590,7 @@ const Dashboard = () => {
                   <HourglassEmptyIcon
                     style={{
                       fontSize: 100,
-                      color: "#47606e",
+                      color: "#82D0FA",
                     }}
                   />
                 </Grid>
@@ -669,7 +669,7 @@ const Dashboard = () => {
                   <CheckCircleIcon
                     style={{
                       fontSize: 100,
-                      color: "#5852ab",
+                      color: "#82D0FA",
                     }}
                   />
                 </Grid>
@@ -706,7 +706,7 @@ const Dashboard = () => {
                   <GroupAddIcon
                     style={{
                       fontSize: 100,
-                      color: "#8c6b19",
+                      color: "#82D0FA",
                     }}
                   />
                 </Grid>
@@ -744,7 +744,7 @@ const Dashboard = () => {
                   <AccessAlarmIcon
                     style={{
                       fontSize: 100,
-                      color: "#7a3f26",
+                      color: "#82D0FA",
                     }}
                   />
                 </Grid>
@@ -781,7 +781,7 @@ const Dashboard = () => {
                   <TimerIcon
                     style={{
                       fontSize: 100,
-                      color: "#8a2c40",
+                      color: "#82D0FA",
                     }}
                   />
                 </Grid>
