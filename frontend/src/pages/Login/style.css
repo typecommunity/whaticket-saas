@@ -1,0 +1,207 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+.geral {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-login {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(235, 242, 255);
+  flex-direction: column;
+}
+
+.container-img {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+}
+
+.img-login {
+  width: 100%;
+  max-width: 462px;
+}
+.container-footer {
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.container-footer a {
+  color: black;
+  cursor: pointer;
+}
+.container-footer span {
+  max-width: 80px;
+  text-align: center;
+}
+.recovery {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-right: 5px;
+  margin-top: 5px;
+  color: #285ec9;
+}
+.link-recovery {
+  text-decoration-color: rgb(20, 54, 234);
+  text-emphasis-color: rgb(20, 54, 234);
+  -webkit-text-fill-color: rgb(20, 54, 234);
+  -webkit-text-stroke-color: rgb(20, 54, 234);
+  text-decoration: none;
+}
+.link-recovery:hover {
+  text-decoration: underline;
+}
+.container-right {
+  background-image: url(../../assets/bg-login.png);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 6px -3px,
+    rgba(0, 0, 0, 0.14) 0px 10px 14px 1px, rgba(0, 0, 0, 0.12) 0px 4px 18px 3px;
+  display: flex;
+  flex-direction: column;
+  inline-size: 462px;
+  line-height: 20.02px;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 500px;
+  padding-bottom: 8px;
+  margin: 0 10px;
+}
+
+.container-header-box {
+  display: flex;
+  margin-top: -18px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+}
+
+.link-create-count {
+  background-color: rgb(224, 224, 224);
+  border-end-start-radius: 30px;
+  border-top-left-radius: 30px;
+  cursor: pointer;
+  padding-top: 6px;
+  width: 100%;
+}
+.link-create-count:hover {
+  background-color: #d5d5d5;
+}
+.label-text {
+  cursor: pointer;
+  display: flex;
+  font-weight: 500;
+  justify-content: center;
+  line-height: 24.5px;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0.87);
+  width: 100%;
+}
+.link-enter {
+  align-items: center;
+  background-color: rgb(20, 54, 234);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px,
+    rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  margin-left: -32px;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  width: 100%;
+  border-radius: 30px;
+}
+.link-enter:hover {
+  background-color: #285ec9;
+  text-decoration: none;
+}
+.link-enter > span {
+  cursor: pointer;
+  display: flex;
+  font-weight: 500;
+  justify-content: center;
+  line-height: 24.5px;
+  -webkit-text-fill-color: rgb(255, 255, 255);
+}
+
+.container-footer-form > p {
+  inline-size: 382px;
+  margin-bottom: 0.35em;
+  text-align: center;
+}
+.termo {
+  text-decoration: none;
+  text-decoration-color: rgb(20, 54, 234);
+  text-emphasis-color: rgb(20, 54, 234);
+  -webkit-text-fill-color: rgb(20, 54, 234);
+  -webkit-text-stroke-color: rgb(20, 54, 234);
+}
+.termo:hover {
+  text-decoration: underline;
+}
+.politica {
+  text-decoration: none;
+  text-decoration-color: rgb(20, 54, 234);
+  text-emphasis-color: rgb(20, 54, 234);
+  -webkit-text-fill-color: rgb(20, 54, 234);
+  -webkit-text-stroke-color: rgb(20, 54, 234);
+}
+.politica:hover {
+  text-decoration: underline;
+}
+@media screen and (max-width: 768px) {
+  .geral {
+    flex-direction: column;
+  }
+  .container {
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+  }
+  .container-footer {
+    display: none;
+  }
+  .container-login {
+    max-height: 300px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .box {
+    margin: 0 10px;
+    width: 90%;
+  }
+  .container-footer-form {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
