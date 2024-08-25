@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "20px",
   },
   paper: {
-    backgroundColor: theme.palette.login,
+    backgroundColor: "rgba(255, 255, 255, 0.8)", // Transparência aplicada
     padding: "55px 30px",
     borderRadius: "12.5px",
     display: "flex",
@@ -57,10 +57,10 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: "20px 0px 16px",
-    backgroundColor: "rgb(20, 54, 234)",
-    borderRadius: " 30px",
+    backgroundColor: "#009146", // Cor alterada para verde
+    borderRadius: "30px",
     "&:hover": {
-      backgroundColor: "#285ec9",
+      backgroundColor: "#007B3A", // Cor mais escura para o hover
     },
     WebkitTextFillColor: "#FFF",
     width: "50%",
@@ -68,6 +68,17 @@ const useStyles = makeStyles((theme) => ({
   input: {
     "& .MuiOutlinedInput-root": {
       borderRadius: "30px",
+      backgroundColor: "transparent", // Fundo transparente
+      // backgroundColor: "#E8F0FE", // Comente esta linha se quiser um fundo azul claro
+      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+        borderColor: "#009146", // Cor da borda ao focar no input
+      },
+    },
+  },
+  tabButton: {
+    "&.Mui-selected": {
+      backgroundColor: "#009146", // Cor alterada para a aba selecionada "Entrar"
+      color: "#FFF",
     },
   },
 }));
@@ -108,7 +119,7 @@ const Login = () => {
               <span className={"label-text"}>Criar conta</span>
             </Link>
             <a
-              className={"link-enter"}
+              className={`link-enter ${classes.tabButton}`}
               to="/login"
               style={{ textDecoration: "none" }}
             >
@@ -129,14 +140,6 @@ const Login = () => {
               onChange={handleChangeInput}
               autoComplete="email"
               autoFocus
-              inputProps={{
-                style: {
-                  borderRadius: "50px",
-                  height: "30px",
-                  padding: "12px",
-                  backgroundColor: "#E8F0FE",
-                },
-              }}
             />
             <TextField
               className={classes.input}
@@ -151,14 +154,6 @@ const Login = () => {
               value={user.password}
               onChange={handleChangeInput}
               autoComplete="current-password"
-              inputProps={{
-                style: {
-                  borderRadius: "50px",
-                  height: "30px",
-                  padding: "12px",
-                  backgroundColor: "#E8F0FE",
-                },
-              }}
             />
             <Button
               type="submit"
