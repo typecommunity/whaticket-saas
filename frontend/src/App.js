@@ -78,7 +78,7 @@ const App = () => {
         inputBackground: mode === "light" ? "#FFFFFF" : "#333",
         barraSuperior:
           mode === "light"
-            ? "linear-gradient(to right, #00BFFF, #0000FF, #00008B)"
+            ? "linear-gradient(to right, #00BFFF, #0000FF, #009146)"
             : "#666",
         boxticket: mode === "light" ? "#EEE" : "#666",
         campaigntab: mode === "light" ? "#ededed" : "#666",
