@@ -1,27 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import qs from "query-string";
+
+import * as Yup from "yup";
+import { useHistory } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
+import { toast } from "react-toastify";
+import { Formik, Form, Field } from "formik";
+import usePlans from "../../hooks/usePlans";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
+import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
+import { FormControl, InputLabel, MenuItem, Select } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Link from "@material-ui/core/Link";
-import { Field, Form, Formik } from "formik";
-import * as Yup from "yup";
-import api from "../../services/api";
-import toastError from "../../errors/toastError";
+import logo from "../../assets/logo.png";
+import backgroundStep from "../../assets/backgroundStep.png";
 import { i18n } from "../../translate/i18n";
+import "./style.css";
+import { openApi } from "../../services/api";
+import toastError from "../../errors/toastError";
+import moment from "moment";
+
+const Copyright = () => {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {"Copyright © "}
+      <Link color="inherit" href="#">
+        Pack Typebot
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+};
 
 const useStyles = makeStyles((theme) => ({
-  geralSignup: {
+  root: {
     height: "100vh",
     display: "flex",
     alignItems: "center",
@@ -44,56 +64,86 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(2),
+    width: "100%",
+    marginTop: theme.spacing(3),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: "20px 0px 16px",
+    backgroundColor: "rgb(20, 54, 234)",
+    borderRadius: "30px",
+    color: "#FFF",
+    "&:hover": {
+      backgroundColor: "#285ec9",
+      boxShadow: "none",
+    },
   },
 }));
 
 const UserSchema = Yup.object().shape({
-  name: Yup.string().required("Required"),
+  name: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Required"),
+  password: Yup.string().min(5, "Too Short!").max(50, "Too Long!"),
   email: Yup.string().email("Invalid email").required("Required"),
-  password: Yup.string().min(6, "Password must be at least 6 characters").required("Required"),
-  phone: Yup.string().required("Required"),
-  planId: Yup.string().required("Required"),
 });
 
 const SignUp = () => {
   const classes = useStyles();
-  const [user, setUser] = useState({});
-  
-  // Defina a lista de planos aqui ou obtenha-a de uma API, caso contrário, use valores fictícios
-  const plans = [
-    { id: "1", name: "Plano 1", users: 1, connections: 1, queues: 1, value: 47.00 },
-    { id: "2", name: "Plano 2", users: 5, connections: 5, queues: 5, value: 147.00 },
-    { id: "3", name: "Plano 3", users: 10, connections: 10, queues: 10, value: 397.00 },
-  ];
+  const history = useHistory();
+  let companyId = null;
 
+  const params = qs.parse(window.location.search);
+  if (params.companyId !== undefined) {
+    companyId = params.companyId;
+  }
+
+  const initialState = {
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+    planId: "",
+  };
+
+  const [user] = useState(initialState);
+  const dueDate = moment().add(3, "day").format();
   const handleSignUp = async (values) => {
+    Object.assign(values, { recurrence: "MENSAL" });
+    Object.assign(values, { dueDate: dueDate });
+    Object.assign(values, { status: "t" });
+    Object.assign(values, { campaignsEnabled: true });
     try {
-      const { data } = await api.post("/auth/signup", values);
-      console.log(data);
+      await openApi.post("/companies/cadastro", values);
+      toast.success(i18n.t("signup.toasts.success"));
+      history.push("/login");
     } catch (err) {
+      console.log(err);
       toastError(err);
     }
   };
 
+  const [plans, setPlans] = useState([]);
+  const { list: listPlans } = usePlans();
+
+  useEffect(() => {
+    async function fetchData() {
+      const list = await listPlans();
+      setPlans(list);
+    }
+    fetchData();
+  }, []);
+
   return (
-    <div className={classes.geralSignup}>
+    <div className={classes.root}>
       <div className={classes.containerSignup}>
         <img
-          alt="Logo"
-          src="https://saaswhaticket.online/logo.png"
+          alt={"Logo"}
+          src={"https://saaswhaticket.online/logo.png"}
           className={classes.logo}
-        />
+        ></img>
         <Typography component="h1" variant="h5">
-          {i18n.t("signup.title")}
+          Cadastre-se
         </Typography>
-        <h4 className="h4">Faça um teste GRÁTIS</h4>
-        <span className="span">
-          Faça seu <b>teste GRATUITO</b> de 3 dias do Whaticket SaaS agora mesmo! <b>.</b>
+        <span>
+          Faça um <b>teste GRATUITO</b> de 3 dias no SaaS Whaticket Sac Online
         </span>
         <Formik
           initialValues={user}
@@ -219,6 +269,7 @@ const SignUp = () => {
             </Form>
           )}
         </Formik>
+        <Box mt={5}>{/* <Copyright /> */}</Box>
       </div>
     </div>
   );
